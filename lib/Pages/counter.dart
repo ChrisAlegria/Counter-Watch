@@ -82,41 +82,52 @@ class _SmartWatchCounterState extends State<CounterWatch> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 19, 19, 19), // Fondo negro
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-              // Botón de incremento arriba del contador
-              onPressed: _incrementCounter,
-              child: Icon(Icons.arrow_upward, size: 16),
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.all(8),
+    return GestureDetector(
+      // Detector de gestos para deslizar hacia arriba o hacia abajo
+      onVerticalDragUpdate: (details) {
+        if (details.primaryDelta! < 0) {
+          _incrementCounter();
+        } else if (details.primaryDelta! > 0) {
+          _decrementCounter();
+        }
+      },
+      child: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 19, 19, 19), // Fondo negro
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              ElevatedButton(
+                // Botón de incremento arriba del contador
+                onPressed: _incrementCounter,
+                child: Icon(Icons.arrow_upward, size: 16),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.all(8),
+                ),
               ),
-            ),
-            SizedBox(
-                height:
-                    25), // Espaciado entre el botón de incremento y el contador
-            Text(
-              '$_counter',
-              style: TextStyle(
+              SizedBox(
+                height: 25,
+              ), // Espaciado entre el botón de incremento y el contador
+              Text(
+                '$_counter',
+                style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            ),
-            SizedBox(
-                height:
-                    25), // Espaciado entre el contador y el botón de decremento
-            ElevatedButton(
-              onPressed: _decrementCounter,
-              child: Icon(Icons.arrow_downward, size: 16),
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.all(8),
+                  color: Colors.white,
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 25,
+              ), // Espaciado entre el contador y el botón de decremento
+              ElevatedButton(
+                onPressed: _decrementCounter,
+                child: Icon(Icons.arrow_downward, size: 16),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.all(8),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
