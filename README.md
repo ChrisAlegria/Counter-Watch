@@ -1,4 +1,4 @@
-# Smartwatch Counter
+# Counter Watch
 This project is a counter application for a Smartwatch developed using Dart and Flutter.
 
 ## Description
