@@ -1,12 +1,27 @@
-# counter_watch
+# Smartwatch Counter
+This project is a counter application for a Smartwatch developed using Dart and Flutter.
 
-A new Flutter project.
+## Description
+The Smartwatch Counter is a simple application that allows you to increment or decrement a counter with vertical swipe gestures. The application displays a warning message when you reach the maximum and minimum limits of the counter.
 
-## Getting Started
+## Installation and Usage
+1. Make sure you have Flutter installed on your system.
+2. Clone this repository to your local machine.
+3. Open the project in your favorite IDE.
+4. Run the command `flutter run` in the terminal to compile and run the application on your device/emulator.
+5. Swipe up on the screen to increment the counter.
+6. Swipe down on the screen to decrement the counter.
 
-This project is a starting point for a Flutter application.
+## Technologies Used
+- Dart: Programming language used to develop the application logic.
+- Flutter: Framework used to build the user interface and manage the application logic.
 
-A few resources to get you started if this is your first Flutter project:
+## File Structure
+- `main.dart`: Main file containing the entry point of the application.
+- `counter.dart`: This is the number counter and the only page in the app.
+
+## Additional Resources
+If this is your first Flutter project, here are some resources to help you get started:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
@@ -14,3 +29,14 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+## Deployment
+You can deploy this application on a Flutter-compatible Smartwatch. Simply compile the project and load it onto your device.
+
+
+## Inspiration and Design
+This project draws inspiration from various sources; however, I do not claim ownership of the design elements used. This project is purely for interactive purposes. 
+
+## Development
+This project was developed by `©ChrisAlegria`. All rights reserved. Unauthorized reproduction or distribution of this project, or any portion of it, is prohibited.
