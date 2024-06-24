@@ -27,7 +27,7 @@ class _SmartWatchCounterState extends State<CounterWatch> {
 
   void _incrementCounter() {
     setState(() {
-      if (_counter < 13) {
+      if (_counter < 10) {
         _counter++;
       } else {
         _showMaxLimitSnackBar();
@@ -37,7 +37,7 @@ class _SmartWatchCounterState extends State<CounterWatch> {
 
   void _decrementCounter() {
     setState(() {
-      if (_counter > -13) {
+      if (_counter > -10) {
         _counter--;
       } else {
         _showMinLimitSnackBar();
@@ -46,11 +46,11 @@ class _SmartWatchCounterState extends State<CounterWatch> {
   }
 
   void _showMaxLimitSnackBar() {
-    _showMessage('El máximo posible es 13');
+    _showMessage('El máximo posible es 10');
   }
 
   void _showMinLimitSnackBar() {
-    _showMessage('El mínimo posible es -13');
+    _showMessage('El mínimo posible es -10');
   }
 
   void _showMessage(String message) {
