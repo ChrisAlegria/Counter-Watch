@@ -45,6 +45,12 @@ class _SmartWatchCounterState extends State<CounterWatch> {
     });
   }
 
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
   void _showMaxLimitSnackBar() {
     _showMessage('El máximo posible es 10');
   }
@@ -108,12 +114,15 @@ class _SmartWatchCounterState extends State<CounterWatch> {
               SizedBox(
                 height: 25,
               ), // Espaciado entre el botón de incremento y el contador
-              Text(
-                '$_counter',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+              GestureDetector(
+                onTap: _resetCounter,
+                child: Text(
+                  '$_counter',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               SizedBox(
