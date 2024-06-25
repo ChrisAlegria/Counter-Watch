@@ -12,7 +12,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.blue, // Color primario
       ),
-      home: CounterWatch(),
+      home: Scaffold(
+        body: CounterWatch(),
+        backgroundColor: const Color.fromARGB(255, 19, 19, 19), // Fondo negro
+      ),
     );
   }
 }
@@ -97,47 +100,61 @@ class _SmartWatchCounterState extends State<CounterWatch> {
           _decrementCounter();
         }
       },
-      child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 19, 19, 19), // Fondo negro
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                // Botón de incremento arriba del contador
-                onPressed: _incrementCounter,
-                child: Icon(Icons.arrow_upward, size: 16),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.all(8),
-                ),
-              ),
-              SizedBox(
-                height: 25,
-              ), // Espaciado entre el botón de incremento y el contador
-              GestureDetector(
-                onTap: _resetCounter,
-                child: Text(
-                  '$_counter',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+      child: Stack(
+        children: [
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  // Botón de incremento arriba del contador
+                  onPressed: _incrementCounter,
+                  child: Icon(Icons.arrow_upward, size: 16),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.all(8),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 25,
-              ), // Espaciado entre el contador y el botón de decremento
-              ElevatedButton(
-                onPressed: _decrementCounter,
-                child: Icon(Icons.arrow_downward, size: 16),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.all(8),
+                SizedBox(
+                  height: 19,
+                ), // Espaciado entre el botón de incremento y el contador
+                GestureDetector(
+                  onTap: _resetCounter,
+                  child: Text(
+                    '$_counter',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 19,
+                ), // Espaciado entre el contador y el botón de decremento
+                ElevatedButton(
+                  onPressed: _decrementCounter,
+                  child: Icon(Icons.arrow_downward, size: 16),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.all(8),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
+          Positioned(
+            top: 4,
+            left: 0,
+            right: 0,
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 1),
+              child: Text(
+                'Counter Watch',
+                style: TextStyle(color: Colors.white, fontSize: 10),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
